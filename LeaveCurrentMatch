@@ -1,0 +1,17 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class LeaveCurrentMatch : MonoBehaviour {
+    public GameObject myCamera;
+    public void OnClickLeaveMatch()
+    {
+        if (PhotonView.isMine)
+        {
+            myCamera.SetActive(false);
+            
+        }
+        PhotonNetwork.LeaveRoom();
+        PhotonNetwork.LoadLevel(0);
+    }
+}
